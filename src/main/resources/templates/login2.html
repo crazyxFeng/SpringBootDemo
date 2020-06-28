@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页</title>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/login" th:object="${user}" method="post">
+   <p>
+       用户名: <input type="text" name="username" th:field="*{username} ">
+   </p>
+    <p>
+        密&nbsp;&nbsp;&nbsp;码: <input type="password" name="password" th:field="*{password}">
+    </p>
+    <input type="submit" value="登录" />
+    <input type="reset" value="重置" />
+    <span class="error" th:if="${errorMsg} ne null " th:text="${errorMsg}"></span>
+</form>
+</body>
+</html>

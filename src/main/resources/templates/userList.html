@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表页</title>
+</head>
+<body>
+<h1>这是用户信息
+    <a href="/exit">退出</a>
+</h1>
+<h2>
+    <form action="queryUser" method="post">
+        <input type="text" name="username" />
+        <input type="submit" value="查询">
+    </form>
+</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user,userStat : ${userInfo}">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.gender}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
